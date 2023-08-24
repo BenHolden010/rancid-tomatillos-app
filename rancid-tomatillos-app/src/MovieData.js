@@ -1,4 +1,4 @@
-const movieData = {
+const MovieData = {
     "movies": [
       {
         "id": 694919,
@@ -323,4 +323,4 @@ const movieData = {
     ]
   };
   
-  export default movieData;
+  export default MovieData;

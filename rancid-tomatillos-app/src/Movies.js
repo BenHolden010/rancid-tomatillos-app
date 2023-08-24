@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 
 function Movies(MovieData) {
     
-    const movieCards = movieData.movies.map(movie => {
+    const movieCards = MovieData.movies.movies.map(movie => {
         return (
             <MovieCard
             id={movie.id}
@@ -13,6 +13,7 @@ function Movies(MovieData) {
             title={movie.title}
             average_rating={movie.average_rating}
             release_date={movie.release_date}
+            key={movie.id}
             />
         )
     })
@@ -23,3 +24,5 @@ function Movies(MovieData) {
         </div>
     )
 }
+
+export default Movies
