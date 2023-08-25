@@ -2,9 +2,9 @@ import './Movies.css'
 import MovieCard from './MovieCard'
 
 
-function Movies(MovieData) {
+function Movies({movies, displayMovie}) {
     
-    const movieCards = MovieData.movies.movies.map(movie => {
+    const movieCards = movies.movies.map(movie => {
         return (
             <MovieCard
             id={movie.id}
@@ -14,6 +14,7 @@ function Movies(MovieData) {
             average_rating={movie.average_rating}
             release_date={movie.release_date}
             key={movie.id}
+            displayMovie={displayMovie}
             />
         )
     })
