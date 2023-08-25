@@ -15,11 +15,15 @@ function displayMovie(id){
   return setSelectedMovie(MovieData.movies.find(movie=>movie.id===id))
 }
 
+function showMovies(){
+  setSelectedMovie('')
+}
+
   return (
     <div className="App">
       <h1>Movies</h1>
       {!selectedMovie && <Movies movies={MovieData} displayMovie={displayMovie}/>}
-      {selectedMovie && <MovieView selectedMovie={selectedMovie}/>
+      {selectedMovie && <MovieView selectedMovie={selectedMovie} showMovies={showMovies}/>
       }
     </div>
   );
