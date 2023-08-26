@@ -2,7 +2,7 @@ import './MovieView.css'
 
 function MovieView({selectedMovie,showMovies}){
 return (
-  <div>
+  <div className="selectedMovie">
     <img className="selectedPoster" src={selectedMovie.backdrop_path}/>
     <h3>{selectedMovie.title}</h3>
     <p>Movie Rating: {selectedMovie.average_rating.toFixed(1)}/10</p>

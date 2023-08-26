@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import MovieData from './MovieData'
 import Movies from './Movies'
@@ -22,9 +21,11 @@ function showMovies(){
   return (
     <div className="App">
       <h1>Movies</h1>
+      <div className='body'>
       {!selectedMovie && <Movies movies={MovieData} displayMovie={displayMovie}/>}
       {selectedMovie && <MovieView selectedMovie={selectedMovie} showMovies={showMovies}/>
       }
+      </div>
     </div>
   );
 }
