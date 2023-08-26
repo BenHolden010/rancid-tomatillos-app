@@ -1,0 +1,14 @@
+.header-container{
+    background-color: black;
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.header-container img{
+    width: 400px;
+    height: 75px;
+    margin-left: 50px;
+}

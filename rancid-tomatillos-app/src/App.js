@@ -3,6 +3,7 @@ import MovieData from './MovieData'
 import Movies from './Movies'
 import  { useState, useEffect } from 'react';
 import MovieView from './MovieView';
+import Header from './Header'
 
 
 
@@ -20,7 +21,7 @@ function showMovies(){
 
   return (
     <div className="App">
-      <h1>Movies</h1>
+      <Header />
       <div className='body'>
       {!selectedMovie && <Movies movies={MovieData} displayMovie={displayMovie}/>}
       {selectedMovie && <MovieView selectedMovie={selectedMovie} showMovies={showMovies}/>
