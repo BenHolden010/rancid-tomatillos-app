@@ -11,15 +11,17 @@ return (
     </div>
     <div className='movie-info'>
       <h3>{title}</h3>
-      <p>Movie Rating: {average_rating.toFixed(1)}/10</p>
-      <p>Release Date: {release_date}</p>
-      <p>Genres: {genres.join(', ')}</p>
-      <p>Overview: {overview}</p>
-      {revenue ? <p>Budget: {budgetEdit}</p> : <p>Budget: Not available</p>}
-      {budget  ? <p>Revenue: {revenueEdit}</p> : <p>Revenue: Not available</p>}
-      <p>Runtime: {runtime} minutes</p>
-      <p>Tagline: {tagline}</p>
-      
+      <p className="tagline">"{tagline}"</p>
+      <p>{genres.join(', ')}</p>
+      <hr></hr>
+      <div className='bottom-info'>
+        <p>{overview}</p>
+        <p>Movie Rating: {average_rating.toFixed(1)}/10</p>
+        <p>Release Date: {release_date}</p>
+        {revenue ? <p>Budget: {budgetEdit}</p> : <p>Budget: Not available</p>}
+        {budget  ? <p>Revenue: {revenueEdit}</p> : <p>Revenue: Not available</p>}
+        <p>Runtime: {runtime} minutes</p>
+      </div>
     </div>
     <button onClick={() => {showMovies()}}>Back</button>
   </div>
