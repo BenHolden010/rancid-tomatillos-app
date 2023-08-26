@@ -4,6 +4,7 @@ import Movies from './Movies'
 import  { useState, useEffect } from 'react';
 import MovieView from './MovieView';
 import Header from './Header'
+import SingleMovie from './SingleMovie'
 
 
 
@@ -24,7 +25,7 @@ function showMovies(){
       <Header />
       <div className='body'>
       {!selectedMovie && <Movies movies={MovieData} displayMovie={displayMovie}/>}
-      {selectedMovie && <MovieView selectedMovie={selectedMovie} showMovies={showMovies}/>
+      {selectedMovie && <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies}/>
       }
       </div>
     </div>
