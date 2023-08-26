@@ -4,7 +4,7 @@ import  { useState, useEffect } from 'react';
 import MovieView from './MovieView';
 import Header from './Header'
 import SingleMovie from './SingleMovie'
-import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './ApiCalls';
+import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './apiCalls';
 import Movies from './Movies'
 
 
