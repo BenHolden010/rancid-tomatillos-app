@@ -1,12 +1,13 @@
 import './MovieView.css'
 
-function MovieView({selectedMovie,showMovies}){
+function MovieView({backdrop_path,id,title,release_date,average_rating,showMovies}){
+  
 return (
   <div className="selectedMovie">
-    <img className="selectedPoster" src={selectedMovie.backdrop_path}/>
-    <h3>{selectedMovie.title}</h3>
-    <p>Movie Rating: {selectedMovie.average_rating.toFixed(1)}/10</p>
-    <p>Release Date: {selectedMovie.release_date}</p>
+    <img className="selectedPoster" src={backdrop_path}/>
+    <h3>{title}</h3>
+    <p>Movie Rating: {average_rating.toFixed(1)}/10</p>
+    <p>Release Date: {release_date}</p>
     <button onClick={() => {showMovies()}}>Back</button>
   </div>
 )
