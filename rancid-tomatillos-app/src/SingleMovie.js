@@ -1,8 +1,7 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
 
-function SingleMovie( {selectedMovie, showMovies}){
-    console.log(selectedMovie)
+function SingleMovie( {selectedMovie, showMovies , selectedVideos}){
     return (
         <div className='single-movie-view'>
         <MovieView 
@@ -18,6 +17,8 @@ function SingleMovie( {selectedMovie, showMovies}){
         revenue = {selectedMovie.revenue}
         runtime = {selectedMovie.runtime}
         tagline = {selectedMovie.tagline}
+        selectedVideos = {selectedVideos}
+        showMovies={showMovies}
         />
         </div>
     )

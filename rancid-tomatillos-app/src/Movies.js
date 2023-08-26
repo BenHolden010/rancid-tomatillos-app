@@ -3,8 +3,7 @@ import MovieCard from './MovieCard'
 
 
 function Movies({movies, displayMovie}) {
-    
-    const movieCards = movies.movies.map(movie => {
+        const movieCards = movies.map(movie => {
         return (
             <MovieCard
             id={movie.id}
