@@ -6,7 +6,7 @@ let budgetEdit = budget.toLocaleString('en-US', { style: 'currency', currency: '
 return (
   <div className="selectedMovie" style={{backgroundImage: `url(${backdrop_path})`}}>
     <div className='video-container'>
-      <iframe height='400' width ='600' src={`https://www.youtube.com/embed/${selectedVideos}?autoplay=1`}>
+      <iframe allowFullScreen height='400' width ='600' src={`https://www.youtube.com/embed/${selectedVideos}?autoplay=1`} allow='autoplay' frameBorder='0' >
       </iframe>
     </div>
     <div className='movie-info'>
