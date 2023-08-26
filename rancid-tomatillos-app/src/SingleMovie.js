@@ -18,6 +18,7 @@ function SingleMovie( {selectedMovie, showMovies , selectedVideos}){
         runtime = {selectedMovie.runtime}
         tagline = {selectedMovie.tagline}
         selectedVideos = {selectedVideos}
+        showMovies={showMovies}
         />
         </div>
     )

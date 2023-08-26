@@ -13,7 +13,7 @@ function App() {
 
 const [selectedMovie, setSelectedMovie] = useState(null)
 const [movies, setMovies] = useState([])
-const [selectedVideos, setSelectedVideos] = useState([])
+const [selectedVideos, setSelectedVideos] = useState('')
 
 useEffect(() => {
   fetchMovies()
@@ -21,11 +21,13 @@ useEffect(() => {
 },[])
 
 function displayMovie(id){
+  fetchMovieVideo(id)
+  .then(data => {
+    let trailer = data.videos.find(video => video.type === 'Trailer');
+    setSelectedVideos(trailer.key)
+  })
   fetchSingleMovie(id)
   .then(data => setSelectedMovie(data.movie)) 
-
-  fetchMovieVideo(id)
-  .then(data => setSelectedVideos(data.videos))
 }
 
 function showMovies(){
