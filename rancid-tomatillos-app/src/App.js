@@ -1,10 +1,9 @@
 import './App.css';
-// import MovieData from './MovieData'
 import  { useState, useEffect } from 'react';
 import MovieView from './MovieView';
 import Header from './Header'
 import SingleMovie from './SingleMovie'
-import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './ApiCalls';
+import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './apiCalls'
 import Movies from './Movies'
 
 
@@ -34,19 +33,19 @@ function showMovies(){
   setSelectedMovie('')
 }
 
-
-
-
   return (
     <div className="App">
+      {/* {!selectedMovie && <Header />} */}
       <Header />
       <div className='body'>
-      {!selectedMovie && <Movies movies={movies} displayMovie={displayMovie}/>}
-      {selectedMovie && <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies} selectedVideos={selectedVideos} />
-      }
+      {/* {!selectedMovie && <Movies movies={movies} displayMovie={displayMovie}/>} */}
+      <Movies movies={movies} displayMovie={displayMovie}/>
+      {selectedMovie && (<div className="overlay">
+            <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies} selectedVideos={selectedVideos} />
+          </div>)}
       </div>
     </div>
-  );
+  )
 }
 
 export default App;

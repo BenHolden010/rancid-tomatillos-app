@@ -1,34 +1,34 @@
 
 
-.selectedPoster{
-  width: 85%;
-  height: 50%;
-}
+
 
 button {
   padding: 1em;
   border-radius: 1em;
 }
 
-.selectedPoster {
-  border-radius: 1em;
-}
+
 
 .selectedMovie {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  background-size: cover;
-  background-color: rgba(0,0,0,.1);
+  /* height: 100vh; */
+  width: 50vw;
+  height: 50vh;
+  background-size: contain;
+  position:relative;
+  /* background-position: center center; */
+  
 }
 
 .movie-info{
-  border-radius: 1em;
-  width: 90%;
-  background-color: rgba(188, 183, 183, .6);
+  background-color: rgba(245, 242, 242, 0.75);
+  display: flex;
+  flex-direction: column;
+  /* height: 35%; */
+  /* width: 100vw; */
 }
 
 .video-container {
@@ -37,12 +37,71 @@ button {
   align-items: center;
   overflow: hidden;
   position: relative;
-  height: 45%;
-  width: 75%;
-  margin-bottom: 10px;
-}
+  height: 40%;
+  width: 65%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  }
 
 .video-container iframe {
   height: 100%;
   width: 100%;
+}
+
+.movie-info h3{
+  font-size: 22px;
+  margin-bottom: 0;
+  margin-left: 20px;
+}
+
+.tagline{
+  color: rgb(136, 255, 0);
+  font-weight: bold;
+  font-size: 40px;
+}
+
+
+.bottom-info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.movie-info p{
+  font-weight: bold;
+}
+
+.top-info{
+  display:flex;
+}
+
+.top-info p{
+  margin-top: 27px;
+  margin-left: 20px;
+}
+
+.back-button{
+  top: 30px;
+  right: 5px;
+  position: absolute;
+}
+
+.top-info > *:not(:last-child){
+  border-right: 2px solid #090909;
+  padding-right: 15px; 
+}
+
+.tagline-container{
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.selected-movie-container{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
