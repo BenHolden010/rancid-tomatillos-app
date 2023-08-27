@@ -1,14 +1,16 @@
 import './MovieView.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function MovieView({backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideos}){
 let revenueEdit = revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 let budgetEdit = budget.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 return (
   <div className='selected-movie-container'>
-    <button className='back-button' onClick={() => {showMovies()}}>Back</button>
+    <button className='back-button' onClick={() => {showMovies()}}><FontAwesomeIcon icon={faXmark} /></button>
     <div className='video-container'>
-        <iframe allowFullScreen src={`https://www.youtube.com/embed/${selectedVideos}?autoplay=1`} allow='autoplay' frameBorder='0' >
-        </iframe>
+        {selectedVideos !== '0' && <iframe allowFullScreen src={`https://www.youtube.com/embed/${selectedVideos}?autoplay=1`} allow='autoplay' frameBorder='0' >
+        </iframe>}
     </div> 
     <div className="selectedMovie" style={{backgroundImage: `url(${backdrop_path})`}}>
       {/* <div className='tagline-container'>
