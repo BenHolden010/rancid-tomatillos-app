@@ -11,11 +11,12 @@ button {
 
 .selectedMovie {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  /* height: 100vh; */
+  width: 50vw;
+  height: 50vh;
   background-size: cover;
   position:relative;
   
@@ -25,8 +26,8 @@ button {
   background-color: rgba(245, 242, 242, 0.75);
   display: flex;
   flex-direction: column;
-  height: 35%;
-  width: 100vw;
+  /* height: 35%; */
+  /* width: 100vw; */
 }
 
 .video-container {
@@ -38,7 +39,7 @@ button {
   height: 40%;
   width: 50%;
   margin-bottom: 30px;
-  margin-top: 200px;
+  margin-top: 30px;
   }
 
 .video-container iframe {
@@ -47,7 +48,7 @@ button {
 }
 
 .movie-info h3{
-  font-size: 30px;
+  font-size: 22px;
   margin-bottom: 0;
   margin-left: 20px;
 }
@@ -76,7 +77,7 @@ button {
 }
 
 .top-info p{
-  margin-top: 42px;
+  margin-top: 27px;
   margin-left: 20px;
 }
 

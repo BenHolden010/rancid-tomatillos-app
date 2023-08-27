@@ -35,11 +35,14 @@ function showMovies(){
 
   return (
     <div className="App">
-      {!selectedMovie && <Header />}
+      {/* {!selectedMovie && <Header />} */}
+      <Header />
       <div className='body'>
-      {!selectedMovie && <Movies movies={movies} displayMovie={displayMovie}/>}
-      {selectedMovie && <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies} selectedVideos={selectedVideos} />
-      }
+      {/* {!selectedMovie && <Movies movies={movies} displayMovie={displayMovie}/>} */}
+      <Movies movies={movies} displayMovie={displayMovie}/>
+      {selectedMovie && (<div className="overlay">
+            <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies} selectedVideos={selectedVideos} />
+          </div>)}
       </div>
     </div>
   )
