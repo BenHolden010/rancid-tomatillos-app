@@ -1,18 +1,13 @@
 
 
-.selectedPoster{
-  width: 85%;
-  height: 50%;
-}
+
 
 button {
   padding: 1em;
   border-radius: 1em;
 }
 
-.selectedPoster {
-  border-radius: 1em;
-}
+
 
 .selectedMovie {
   display: flex;
@@ -22,17 +17,15 @@ button {
   height: 100vh;
   width: 100%;
   background-size: cover;
+  position:relative;
   
 }
 
 .movie-info{
-  border-radius: 1em;
-  width: 65%;
   background-color: rgba(245, 242, 242, 0.75);
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  height: 35%;
 }
 
 .video-container {
@@ -41,10 +34,11 @@ button {
   align-items: center;
   overflow: hidden;
   position: relative;
-  height: 45%;
-  width: 65%;
-  margin-bottom: 10px;
-}
+  height: 40%;
+  width: 50%;
+  margin-bottom: 30px;
+  margin-top: 200px;
+  }
 
 .video-container iframe {
   height: 100%;
@@ -54,26 +48,47 @@ button {
 .movie-info h3{
   font-size: 30px;
   margin-bottom: 0;
+  margin-left: 20px;
 }
 
 .tagline{
-  color: red;
+  color: rgb(136, 255, 0);
   font-weight: bold;
+  font-size: 40px;
 }
 
-.movie-info hr{
-  border: 1px solid rgb(125, 83, 83);
-  width: 75%;
-}
 
 .bottom-info{
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 60%;
 }
 
 .movie-info p{
   font-weight: bold;
 }
 
+.top-info{
+  display:flex;
+}
+
+.top-info p{
+  margin-top: 42px;
+  margin-left: 20px;
+}
+
+.back-button{
+  top: 5px;
+  left: 5px;
+  position: absolute;
+}
+
+.top-info > *:not(:last-child){
+  border-right: 2px solid #090909;
+  padding-right: 15px; 
+}
+
+.tagline-container{
+  margin-bottom: 100px;
+  margin-top: 50px;
+}

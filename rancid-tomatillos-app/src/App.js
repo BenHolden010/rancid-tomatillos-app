@@ -35,7 +35,7 @@ function showMovies(){
 
   return (
     <div className="App">
-      <Header />
+      {!selectedMovie && <Header />}
       <div className='body'>
       {!selectedMovie && <Movies movies={movies} displayMovie={displayMovie}/>}
       {selectedMovie && <SingleMovie selectedMovie={selectedMovie} showMovies={showMovies} selectedVideos={selectedVideos} />
