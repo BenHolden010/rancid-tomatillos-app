@@ -1,10 +1,9 @@
 import './App.css';
-// import MovieData from './MovieData'
 import  { useState, useEffect } from 'react';
 import MovieView from './MovieView';
 import Header from './Header'
 import SingleMovie from './SingleMovie'
-import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './apiCalls';
+import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './apiCalls'
 import Movies from './Movies'
 
 
@@ -34,9 +33,6 @@ function showMovies(){
   setSelectedMovie('')
 }
 
-
-
-
   return (
     <div className="App">
       <Header />
@@ -46,7 +42,7 @@ function showMovies(){
       }
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
