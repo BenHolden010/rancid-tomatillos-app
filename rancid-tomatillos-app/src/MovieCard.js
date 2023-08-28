@@ -1,4 +1,5 @@
 import './MovieCard.css'
+import PropTypes from 'prop-types'
 
 function MovieCard({id , title, poster_path, backdrop_path, average_rating, release_date, displayMovie}) {
     let shortenedRating = average_rating.toFixed(1)
@@ -22,3 +23,13 @@ function MovieCard({id , title, poster_path, backdrop_path, average_rating, rele
 }
 
 export default MovieCard
+
+MovieCard.propTypes = {
+  id: PropTypes.number.isRequired,
+   title: PropTypes.string.isRequired,
+   poster_path: PropTypes.string.isRequired,
+   backdrop_path: PropTypes.string.isRequired,
+   average_rating: PropTypes.number.isRequired,
+   release_date: PropTypes.string.isRequired,
+   displayMovie: PropTypes.func.isRequired
+}

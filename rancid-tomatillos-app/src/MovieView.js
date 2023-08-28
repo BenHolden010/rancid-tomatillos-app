@@ -1,6 +1,7 @@
 import './MovieView.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from "prop-types"
 
 function MovieView({backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideos}){
 let revenueEdit = revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
@@ -40,3 +41,20 @@ return (
 }
 
 export default MovieView
+
+MovieView.propTypes = {
+  id: PropTypes.number.isRequired,
+   title: PropTypes.string.isRequired,
+   backdrop_path: PropTypes.string.isRequired,
+   average_rating: PropTypes.number.isRequired,
+   release_date: PropTypes.string.isRequired,
+   showMovies: PropTypes.func.isRequired,
+   genres: PropTypes.arrayOf(PropTypes.string.isRequired
+   ).isRequired,
+   overview: PropTypes.string.isRequired,
+   revenue: PropTypes.number.isRequired,
+   runtime: PropTypes.number.isRequired,
+   tagline: PropTypes.string.isRequired,
+   budget: PropTypes.number.isRequired,
+   selectedVideos: PropTypes.string.isRequired
+}
