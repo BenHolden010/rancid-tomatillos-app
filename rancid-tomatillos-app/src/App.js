@@ -23,7 +23,12 @@ function displayMovie(id){
   fetchMovieVideo(id)
   .then(data => {
     let trailer = data.videos.find(video => video.type === 'Trailer');
+    if(trailer){
     setSelectedVideos(trailer.key)
+    }
+    else{
+      setSelectedVideos('0')
+    }
   })
   fetchSingleMovie(id)
   .then(data => setSelectedMovie(data.movie)) 
