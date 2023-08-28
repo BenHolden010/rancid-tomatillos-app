@@ -1,7 +1,8 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
+import PropTypes from 'prop-types';
 
-function SingleMovie( {selectedMovie, showMovies , selectedVideos}){
+function SingleMovie( {selectedMovie, showMovies, selectedVideos}){
     return (
         <div className='single-movie-view'>
         <MovieView 
@@ -25,3 +26,22 @@ function SingleMovie( {selectedMovie, showMovies , selectedVideos}){
 }
 
 export default SingleMovie
+
+SingleMovie.propTypes = {
+  selectedMovie: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        backdrop_path: PropTypes.string.isRequired,
+        average_rating: PropTypes.number.isRequired,
+        release_date: PropTypes.string.isRequired,
+        genres: PropTypes.arrayOf(PropTypes.string.isRequired
+        ).isRequired,
+        overview: PropTypes.string.isRequired,
+        revenue: PropTypes.number.isRequired,
+        runtime: PropTypes.number.isRequired,
+        tagline: PropTypes.string.isRequired,
+        budget: PropTypes.number.isRequired,
+        }),
+        showMovies: PropTypes.func.isRequired,
+        selectedVideos: PropTypes.string.isRequired
+}
