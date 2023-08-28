@@ -1,5 +1,6 @@
 import './Movies.css'
 import MovieCard from './MovieCard'
+import PropTypes from 'prop-types'
 
 
 function Movies({movies, displayMovie}) {
@@ -26,3 +27,15 @@ function Movies({movies, displayMovie}) {
 }
 
 export default Movies
+
+Movies.propTypes = {
+    movies: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string.isRequired,
+            average_rating: PropTypes.number.isRequired,
+            poster_path: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired
+          })
+    ),
+     displayMovie: PropTypes.func.isRequired
+  }
