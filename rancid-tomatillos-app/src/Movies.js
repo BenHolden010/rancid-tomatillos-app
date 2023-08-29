@@ -20,7 +20,7 @@ function Movies({movies, displayMovie}) {
     })
 
     return (
-        <div className='movies-containter'>
+        <div className='movies-container'>
             {movieCards}
         </div>
     )

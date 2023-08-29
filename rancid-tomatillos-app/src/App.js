@@ -13,6 +13,7 @@ function App() {
 const [selectedMovie, setSelectedMovie] = useState(null)
 const [movies, setMovies] = useState([])
 const [selectedVideos, setSelectedVideos] = useState('')
+const [errorState, setErrorState] = useState(null)
 
 useEffect(() => {
   fetchMovies()
