@@ -1,5 +1,6 @@
 import './MovieCard.css'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 function MovieCard({id , title, poster_path, backdrop_path, average_rating, release_date, displayMovie}) {
     let shortenedRating = average_rating.toFixed(1)
@@ -13,12 +14,14 @@ function MovieCard({id , title, poster_path, backdrop_path, average_rating, rele
       }
     }
     return (
-        <div className="movie-card" onClick={() => displayMovie(id)}>
+      <Link className='card--link' to={`/${id}`}>
+        <div className="movie-card">
             <div className='movie-poster' style={{backgroundImage: `url(${poster_path})`}}>
                 <h3 className='rating-display' style={{backgroundColor: assignedColor()}}>{shortenedRating}</h3>
             </div>
             <h3>{title}</h3>
         </div>
+      </Link>
     )
 }
 

@@ -1,8 +1,35 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
 import PropTypes from 'prop-types';
+import {useParams} from 'react-router-dom'
+import  { useState, useEffect} from 'react';
 
-function SingleMovie( {selectedMovie, showMovies, selectedVideos}){
+function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
+    const [selectedMovie, setSelectedMovie] = useState(null)
+    const [selectedVideo, setSelectedVideo] = useState('0')
+
+    let id = useParams().id
+
+    useEffect( ()=> {
+
+        fetchMovieVideo(id)
+  .then(data => {
+    let trailer = data.videos.find(video => video.type === 'Trailer');
+    if(trailer){
+    setSelectedVideo(trailer.key)
+    }
+    else{
+      setSelectedVideo('0')
+    }
+  })
+  .catch(error => setError(error.message))
+
+        fetchSingleMovie(id)
+        .then(data=> setSelectedMovie(data.movie))
+        .catch(error=> setError(error.message))
+    },[])
+
+    if (selectedMovie){
     return (
         <div className='single-movie-view'>
         <MovieView 
@@ -18,11 +45,10 @@ function SingleMovie( {selectedMovie, showMovies, selectedVideos}){
         revenue = {selectedMovie.revenue}
         runtime = {selectedMovie.runtime}
         tagline = {selectedMovie.tagline}
-        selectedVideos = {selectedVideos}
-        showMovies={showMovies}
+        selectedVideo={selectedVideo}
         />
         </div>
-    )
+    )}
 }
 
 export default SingleMovie
@@ -42,6 +68,4 @@ SingleMovie.propTypes = {
         tagline: PropTypes.string.isRequired,
         budget: PropTypes.number.isRequired,
         }),
-        showMovies: PropTypes.func.isRequired,
-        selectedVideos: PropTypes.string.isRequired
 }

@@ -2,16 +2,20 @@ import './MovieView.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from "prop-types"
+import { Link } from 'react-router-dom'
 
-function MovieView({backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideos}){
+function MovieView({poster_path, backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideo}){
 let revenueEdit = revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 let budgetEdit = budget.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 return (
   <div className='selected-movie-container'>
-    <button className='back-button' onClick={() => {showMovies()}}><FontAwesomeIcon icon={faXmark} /></button>
+    <Link className='card--link' to={`/`}>
+      <button className='back-button'><FontAwesomeIcon icon={faXmark} /></button>
+    </Link>
     <div className='video-container'>
-        {selectedVideos !== '0' && <iframe allowFullScreen src={`https://www.youtube.com/embed/${selectedVideos}?autoplay=1`} allow='autoplay' frameBorder='0' >
+        {selectedVideo !== '0' && <iframe allowFullScreen src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`} allow='autoplay' frameBorder='0' >
         </iframe>}
+        {selectedVideo == '0' && <img src={poster_path}></img>}
     </div> 
     <div className="selectedMovie" style={{backgroundImage: `url(${backdrop_path})`}}>
       {/* <div className='tagline-container'>
@@ -48,7 +52,6 @@ MovieView.propTypes = {
    backdrop_path: PropTypes.string.isRequired,
    average_rating: PropTypes.number.isRequired,
    release_date: PropTypes.string.isRequired,
-   showMovies: PropTypes.func.isRequired,
    genres: PropTypes.arrayOf(PropTypes.string.isRequired
    ).isRequired,
    overview: PropTypes.string.isRequired,
@@ -56,5 +59,5 @@ MovieView.propTypes = {
    runtime: PropTypes.number.isRequired,
    tagline: PropTypes.string.isRequired,
    budget: PropTypes.number.isRequired,
-   selectedVideos: PropTypes.string.isRequired
+   selectedVideo: PropTypes.string.isRequired
 }
