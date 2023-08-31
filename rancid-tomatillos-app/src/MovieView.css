@@ -13,19 +13,16 @@ button:hover{
   cursor: pointer;
 }
 
-
 .selectedMovie {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  /* height: 100vh; */
   width: 50vw;
   height: 50vh;
-  background-size: cover;
   position:relative;
-  /* background-position: center center; */
-  
+  background-size: 100% 100%;
+  min-width: 330px;
 }
 
 .movie-info{
@@ -45,15 +42,20 @@ button:hover{
   align-items: center;
   overflow: hidden;
   position: relative;
-  height: 40%;
-  width: 65%;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  height: 50%;
+  width: 102%;
+  border-bottom: solid 20px black;
   }
 
 .video-container iframe {
   height: 100%;
   width: 100%;
+}
+
+.video-container img {
+  height: 100%;
+  width: 30%;
+  min-width: 150px;
 }
 
 .movie-info h3{
@@ -74,8 +76,9 @@ button:hover{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 50%;
+  /* width: 50%; */
   margin-left: 20px;
+  margin-right: 20px;
 }
 
 .movie-info p{
@@ -84,6 +87,7 @@ button:hover{
 
 .top-info{
   display:flex;
+  margin-right: 10%;
 }
 
 .top-info p{
@@ -92,8 +96,8 @@ button:hover{
 }
 
 .back-button{
-  top: 30px;
-  right: 5px;
+  top: -55px;
+  right: -20px;
   position: absolute;
 }
 
@@ -112,5 +116,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 75%;
+  border: solid 20px black;
+  background: black;
 }

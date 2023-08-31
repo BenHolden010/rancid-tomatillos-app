@@ -46,11 +46,14 @@ function showMovies(){
 
   return (
     <div className="App">
-      <Header />
       <div className='body'>
       <Routes>
-      <Route path="/" element={<Movies movies={movies}
-       displayMovie={displayMovie}/>}/>
+      <Route path="/" element={
+        <>
+        <Header />
+        <Movies movies={movies}
+        displayMovie={displayMovie}/>
+       </>}/>
       <Route path="/:id" element={<SingleMovie setError={setError}
        fetchMovieVideo={fetchMovieVideo} fetchSingleMovie={fetchSingleMovie}/>}/>
       <Route path="*" element={<Error error={error}/>}/>

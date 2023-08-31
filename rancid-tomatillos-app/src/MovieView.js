@@ -4,7 +4,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 
-function MovieView({backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideo}){
+function MovieView({poster_path, backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideo}){
 let revenueEdit = revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 let budgetEdit = budget.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
 return (
@@ -15,6 +15,7 @@ return (
     <div className='video-container'>
         {selectedVideo !== '0' && <iframe allowFullScreen src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`} allow='autoplay' frameBorder='0' >
         </iframe>}
+        {selectedVideo == '0' && <img src={poster_path}></img>}
     </div> 
     <div className="selectedMovie" style={{backgroundImage: `url(${backdrop_path})`}}>
       {/* <div className='tagline-container'>
