@@ -3,11 +3,13 @@ import MovieView from './MovieView'
 import PropTypes from 'prop-types';
 import {useParams} from 'react-router-dom'
 import  { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
     const [selectedMovie, setSelectedMovie] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('0')
-
+    
+    let navigate = useNavigate()
     let id = useParams().id
 
     useEffect( ()=> {
@@ -22,11 +24,17 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
       setSelectedVideo('0')
     }
   })
-  .catch(error => setError(error.message))
+  .catch(error =>  {
+    setError(error.message)
+    navigate('*')
+  })
 
         fetchSingleMovie(id)
         .then(data=> setSelectedMovie(data.movie))
-        .catch(error=> setError(error.message))
+        .catch(error=> {
+          setError(error.message)
+          navigate('*')
+        })
     },[])
 
     if (selectedMovie){

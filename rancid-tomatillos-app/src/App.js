@@ -23,27 +23,27 @@ useEffect(() => {
   .catch(error => setError(error.message))
 },[])
 
-function displayMovie(id){
-  fetchMovieVideo(id)
-  .then(data => {
-    let trailer = data.videos.find(video => video.type === 'Trailer');
-    if(trailer){
-    setSelectedVideos(trailer.key)
-    }
-    else{
-      setSelectedVideos('0')
-    }
-  })
-  .catch(error => setError(error.message))
-  fetchSingleMovie(id)
-  .then(data => setSelectedMovie(data.movie))
-  .catch(error => setError(error.message))
-}
+// function displayMovie(id){
+//   fetchMovieVideo(id)
+//   .then(data => {
+//     let trailer = data.videos.find(video => video.type === 'Trailer');
+//     if(trailer){
+//     setSelectedVideos(trailer.key)
+//     }
+//     else{
+//       setSelectedVideos('0')
+//     }
+//   })
+//   .catch(error => setError(error.message))
+//   fetchSingleMovie(id)
+//   .then(data => setSelectedMovie(data.movie))
+//   .catch(error => setError(error.message))
+// }
 
-console.log("MOVIES PROP :", movies);
-function showMovies(){
-  setSelectedMovie('')
-}
+// console.log("MOVIES PROP :", movies);
+// function showMovies(){
+//   setSelectedMovie('')
+// }
 
   return (
     <div className="App">
@@ -56,7 +56,7 @@ function showMovies(){
        </>}/>
       <Route path="/:id" element={<SingleMovie setError={setError}
        fetchMovieVideo={fetchMovieVideo} fetchSingleMovie={fetchSingleMovie}/>}/>
-      <Route path="*" element={<Error error={error}/>}/>
+      <Route path="*" element={<Error setError={setError} error={error}/>}/>
       </Routes>
       </div>
     </div>
