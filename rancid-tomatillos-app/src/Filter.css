@@ -1,0 +1,25 @@
+.search-filter-form{
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+}
+
+.filter-container{
+    display:flex;
+}
+
+.filter-container p{
+    margin-right: 20px;
+}
+
+.low{
+    background-color: red;
+}
+ 
+.med{
+    background-color: orange;
+}
+
+.high{
+    background-color: green;
+}
