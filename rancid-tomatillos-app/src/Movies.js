@@ -25,9 +25,18 @@ function Movies({movies, displayMovie}) {
         setFilteredMovies(sortedMovies)
     }
 
-    function filterMovies(searchValue){
+    function filterMovies(searchValue, filterValue){
+        const ratings ={
+            low : [0,5],
+            med : [5,7],
+            high : [7,11],
+            none : [0,11]
+        }
         const newMovies = movies.filter(movie =>{
-            return movie.title.toLowerCase().includes(searchValue.toLowerCase()) ? true: false
+            const searchInTitle = movie.title.toLowerCase().includes(searchValue.toLowerCase())
+            const ratingMatches = movie.average_rating >= ratings[filterValue][0] && movie.average_rating < ratings[filterValue][1];
+            
+            return searchInTitle && ratingMatches ? true : false;
         })
         setFilteredMovies(newMovies) 
     }

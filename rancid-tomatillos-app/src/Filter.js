@@ -4,11 +4,11 @@ import {useState, useEffect} from 'react'
 function Filter({sortMovies , filterMovies}){
 
     const [searchValue, setSearchValue] = useState('')
-    const [filterValue, setFilterValue] = useState(null)
+    const [filterValue, setFilterValue] = useState('none')
 
     useEffect(() => {
         filterMovies(searchValue, filterValue)
-    },[searchValue])
+    },[searchValue, filterValue])
 
 
     function setSearchMovies(e){
