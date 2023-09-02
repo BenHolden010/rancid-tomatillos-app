@@ -52,9 +52,10 @@ useEffect(() => {
       <Route path="/" element={
         <>
         <Header />
-        <Movies movies={movies}/>
+        {!movies.length ? <p>Please Wait While Movies Load.</p> :
+        <Movies movies={movies}/>}
        </>}/>
-      <Route path="/:id" element={<SingleMovie setError={setError}
+      <Route path="/:id" element={<SingleMovie setError={setError} movies={movies}
        fetchMovieVideo={fetchMovieVideo} fetchSingleMovie={fetchSingleMovie}/>}/>
       <Route path="*" element={<Error setError={setError} error={error}/>}/>
       </Routes>

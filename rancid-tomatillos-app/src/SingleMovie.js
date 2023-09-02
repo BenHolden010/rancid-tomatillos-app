@@ -1,19 +1,26 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
 import PropTypes from 'prop-types';
-import {useParams} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
 import  { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
+function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
     const [selectedMovie, setSelectedMovie] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('0')
     
     let navigate = useNavigate()
-    let id = useParams().id
-
+    let id = Number(useParams().id)
+    function checkMovieID(){
+      console.log(movies)
+      console.log(movies.find(movie => movie.id ===id))
+      if(movies.find(movie => movie.id ===id) === undefined){
+        console.log('im an error page')
+        return false;
+      } else {return true}
+    }
     useEffect( ()=> {
-
+    if (checkMovieID()){
         fetchMovieVideo(id)
   .then(data => {
     let trailer = data.videos.find(video => video.type === 'Trailer');
@@ -35,6 +42,10 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
           setError(error.message)
           navigate('*')
         })
+      } 
+      else {
+       navigate('*')
+      }
     },[])
 
     if (selectedMovie){
