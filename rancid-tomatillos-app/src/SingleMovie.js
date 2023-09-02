@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
     const [selectedMovie, setSelectedMovie] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('0')
+
     
     let navigate = useNavigate()
     let id = Number(useParams().id)
@@ -20,22 +21,22 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
       } else {return true}
     }
     useEffect( ()=> {
-    if (checkMovieID()){
+      if (checkMovieID()){
         fetchMovieVideo(id)
-  .then(data => {
-    let trailer = data.videos.find(video => video.type === 'Trailer');
-    if(trailer){
-    setSelectedVideo(trailer.key)
-    }
-    else{
-      setSelectedVideo('0')
-    }
-  })
-  .catch(error =>  {
-    setError(error.message)
-    navigate('*')
-  })
-
+        .then(data => {
+          let trailer = data.videos.find(video => video.type === 'Trailer');
+          if(trailer){
+            setSelectedVideo(trailer.key)
+          }
+          else{
+            setSelectedVideo('0')
+          }
+        })
+        .catch(error =>  {
+          setError(error.message)
+          navigate('*')
+        })
+        
         fetchSingleMovie(id)
         .then(data=> setSelectedMovie(data.movie))
         .catch(error=> {
@@ -44,12 +45,15 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
         })
       } 
       else {
-       navigate('*')
+        navigate('*')
       }
     },[])
-
-    if (selectedMovie){
-    return (
+    
+    
+      if(selectedMovie === null){ 
+        return (<p>Please wait for movie info to load</p>)
+      } else {
+        return (
         <div className='single-movie-view'>
         <MovieView 
         id = {selectedMovie.id}
@@ -66,8 +70,11 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
         tagline = {selectedMovie.tagline}
         selectedVideo={selectedVideo}
         />
-        </div>
-    )}
+        </div>)
+
+      }
+
+    
 }
 
 export default SingleMovie
