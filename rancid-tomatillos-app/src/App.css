@@ -7,6 +7,10 @@
   text-align: center;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 .App {
   display: flex;
   justify-content: center;

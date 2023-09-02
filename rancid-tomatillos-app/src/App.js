@@ -40,6 +40,7 @@ function displayMovie(id){
   .catch(error => setError(error.message))
 }
 
+console.log("MOVIES PROP :", movies);
 function showMovies(){
   setSelectedMovie('')
 }
@@ -51,8 +52,7 @@ function showMovies(){
       <Route path="/" element={
         <>
         <Header />
-        <Movies movies={movies}
-        displayMovie={displayMovie}/>
+        <Movies movies={movies}/>
        </>}/>
       <Route path="/:id" element={<SingleMovie setError={setError}
        fetchMovieVideo={fetchMovieVideo} fetchSingleMovie={fetchSingleMovie}/>}/>
