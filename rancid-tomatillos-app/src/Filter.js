@@ -1,6 +1,9 @@
 import './Filter.css'
 import {useState, useEffect} from 'react'
 
+import {faArrowUpWideShort, faArrowDownShortWide} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 function Filter({sortMovies , filterMovies}){
 
     const [searchValue, setSearchValue] = useState('')
@@ -15,20 +18,35 @@ function Filter({sortMovies , filterMovies}){
         console.log("SERACH VALUE:",e.target.value)
         setSearchValue(e.target.value)
     }
+
+    function assignFilter(e){
+        setFilterValue(e.target.value);
+    }
+
     
     return (
         <div className='search-filter-form'>
             <div className='filter-container'>
-                <p>Filter by Rating: </p>
-                <button className='filter-button low' onClick={() => setFilterValue('low')}>Low</button>
-                <button className='filter-button med' onClick={() => setFilterValue('med')}>Medium</button>
-                <button className='filter-button high' onClick={() => setFilterValue('high')}>High</button>
+                <div className='filter-dropdown'>
+                    <label htmlFor="dropdown">Filter by rating:</label>
+                    <select id="dropdown" onChange={assignFilter} value={filterValue} className={`filter-dropdown-selection ${filterValue}`}>
+                        <option value="none">None</option> 
+                        <option value="low">Low   1-5</option>
+                        <option value="med" className='med-option'>Medium   5-7</option>
+                        <option value="high">High   7-10</option>
+                    </select>
+                </div>
             </div>
-            <input type='text' name='moviesearch' value={searchValue} onChange={setSearchMovies}/>
-            <button onClick={() => sortMovies('ascend') }>ASCEND</button>
-            <button onClick={() => sortMovies('descend') }>DESCEND</button>
+            <input className='search-input' type='text' name='moviesearch' value={searchValue} placeholder='Search by movie title...' onChange={setSearchMovies}/>
+            <div className='sort-button-wrapper'>
+            <p>Sort by:</p>
+            <button onClick={() => sortMovies('ascend') }>Low-High <FontAwesomeIcon icon={faArrowUpWideShort} /></button>
+            <button onClick={() => sortMovies('descend') }>High-low <FontAwesomeIcon icon={faArrowDownShortWide} /></button>
+            </div>
         </div>
+
     )
 }
+
 
 export default Filter;
