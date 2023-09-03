@@ -30,6 +30,7 @@ We did usability testing to learn more about what parts of our site were unclear
 
 ## 📷 Preview
 ![rancidTomatillos_preview](https://github.com/BenHolden010/rancid-tomatillos-app/assets/126317930/b0f92941-e449-4832-a9ae-d7ef7e63259b)
+Deployed Link - https://rancid-tomatillos-app-u1jy.vercel.app/
 
 
 ## 💻 Technologies Used
