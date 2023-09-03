@@ -33,7 +33,8 @@ function Movies({movies, displayMovie}) {
             none : [0,11]
         }
         const newMovies = movies.filter(movie =>{
-            const searchInTitle = movie.title.toLowerCase().includes(searchValue.toLowerCase())
+            const splitTitle = (movie.title.split(' '))
+            const searchInTitle = splitTitle.find(title => title.toLowerCase().startsWith(searchValue.toLowerCase()))
             const ratingMatches = movie.average_rating >= ratings[filterValue][0] && movie.average_rating < ratings[filterValue][1];
             
             return searchInTitle && ratingMatches ? true : false;

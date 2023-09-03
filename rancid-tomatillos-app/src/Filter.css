@@ -8,23 +8,25 @@
 .filter-container{
     display:flex;
     align-items: center;
-    width: 17vw;
+    width: 13vw;
+   
 }
+
 
 .filter-container p{
     margin-right: 20px;
 }
 
 .low{
-    background-color: red;
+    background-color: rgba(255, 0, 0, .6);
 }
  
 .med{
-    background-color: orange;
+    background-color: rgba(255, 165, 0, .6);
 }
 
 .high{
-    background-color: green;
+    background-color: rgba(4, 249, 4, 0.6);
 }
 
 /* .filter-buttons-container{
@@ -38,6 +40,8 @@
 
 .filter-dropdown{
     display: flex;
+    align-items: center;
+    
 }
 
 .filter-dropdown label{
@@ -47,6 +51,7 @@
 
 .filter-dropdown-selection{
     border-radius: 5px;
+    height: 25px;
 }
 
 .search-input{
@@ -54,6 +59,7 @@
     border-radius: 10px;
     background-color: rgb(247, 242, 242);
     margin-right:40px;
+    height: 30px;
 }
  
 .sort-button-wrapper{
