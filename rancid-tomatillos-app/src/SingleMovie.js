@@ -1,36 +1,59 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
 import PropTypes from 'prop-types';
-import {useParams} from 'react-router-dom'
+import {NavLink, useParams} from 'react-router-dom'
 import  { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
+function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
     const [selectedMovie, setSelectedMovie] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('0')
 
-    let id = useParams().id
-
+    
+    let navigate = useNavigate()
+    let id = Number(useParams().id)
+    function checkMovieID(){
+      console.log(movies)
+      console.log(movies.find(movie => movie.id ===id))
+      if(movies.find(movie => movie.id ===id) === undefined){
+        console.log('im an error page')
+        return false;
+      } else {return true}
+    }
     useEffect( ()=> {
-
+      if (checkMovieID()){
         fetchMovieVideo(id)
-  .then(data => {
-    let trailer = data.videos.find(video => video.type === 'Trailer');
-    if(trailer){
-    setSelectedVideo(trailer.key)
-    }
-    else{
-      setSelectedVideo('0')
-    }
-  })
-  .catch(error => setError(error.message))
-
+        .then(data => {
+          let trailer = data.videos.find(video => video.type === 'Trailer');
+          if(trailer){
+            setSelectedVideo(trailer.key)
+          }
+          else{
+            setSelectedVideo('0')
+          }
+        })
+        .catch(error =>  {
+          setError(error.message)
+          navigate('*')
+        })
+        
         fetchSingleMovie(id)
         .then(data=> setSelectedMovie(data.movie))
-        .catch(error=> setError(error.message))
+        .catch(error=> {
+          setError(error.message)
+          navigate('*')
+        })
+      } 
+      else {
+        navigate('*')
+      }
     },[])
-
-    if (selectedMovie){
-    return (
+    
+    
+      if(selectedMovie === null){ 
+        return (<p>Please wait for movie info to load</p>)
+      } else {
+        return (
         <div className='single-movie-view'>
         <MovieView 
         id = {selectedMovie.id}
@@ -47,8 +70,11 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo}){
         tagline = {selectedMovie.tagline}
         selectedVideo={selectedVideo}
         />
-        </div>
-    )}
+        </div>)
+
+      }
+
+    
 }
 
 export default SingleMovie

@@ -13,7 +13,8 @@
 }
 
 .no-movies-container{
-    background-color: yellow;
+    color: white;
+    background-color: black;
     width: 80%;
-    
+    border-radius: 1em;
 }

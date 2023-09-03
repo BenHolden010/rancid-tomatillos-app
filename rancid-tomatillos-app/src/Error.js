@@ -1,9 +1,15 @@
+import { NavLink } from "react-router-dom"
 
+export default function Error({setError, error}){
+ 
+    setError('Whoops! Something went wrong! page not found. please try another option')
 
-export default function Error({error}){
 return( 
   <div>
-  Whoops! Something went wrong! msg:{error}
+  {error}
+  <NavLink to="/">
+  <button>Retrun to Home Page</button>
+  </NavLink>
   </div>
 )
 }

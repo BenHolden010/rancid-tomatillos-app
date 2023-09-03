@@ -58,7 +58,7 @@ function Movies({movies, displayMovie}) {
     return (
         <>
             <Filter className='filter-sort-form' sortMovies={sortMovies} filterMovies={filterMovies}/>
-            {filteredMovies.length === 0 && <div className='no-movies-container'><p>NO MOVIES MATCH SEARCH</p>
+            {filteredMovies.length === 0 && <div className='no-movies-container'><p>No movies match the search criteria. Please try another search.</p>
                 </div>}
             {filteredMovies && <div className='movies-container'>
                 {movieCards}
