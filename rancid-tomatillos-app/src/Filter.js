@@ -15,7 +15,6 @@ function Filter({sortMovies , filterMovies}){
 
 
     function setSearchMovies(e){
-        console.log("SERACH VALUE:",e.target.value)
         setSearchValue(e.target.value)
     }
 
@@ -29,7 +28,7 @@ function Filter({sortMovies , filterMovies}){
             <div className='filter-container'>
                 <div className='filter-dropdown'>
                     <label htmlFor="dropdown">Filter by rating:</label>
-                    <select id="dropdown" onChange={assignFilter} value={filterValue} className={`filter-dropdown-selection ${filterValue}`}>
+                    <select id="dropdown" onChange={assignFilter} name='dropdown' value={filterValue} className={`filter-dropdown-selection ${filterValue}`}>
                         <option value="none">None</option> 
                         <option value="low">Low   1-5</option>
                         <option value="med" className='med-option'>Medium   5-7</option>
@@ -37,7 +36,7 @@ function Filter({sortMovies , filterMovies}){
                     </select>
                 </div>
             </div>
-            <input className='search-input' type='text' name='moviesearch' value={searchValue} placeholder='Search by movie title...' onChange={setSearchMovies}/>
+            <input className='search-input' id='moviessearch' type='text' name='moviesearch' value={searchValue} placeholder='Search by movie title...' onChange={setSearchMovies}/>
             <div className='sort-button-wrapper'>
             <p>Sort by:</p>
             <button onClick={() => sortMovies('ascend') }>Low-High <FontAwesomeIcon icon={faArrowUpWideShort} /></button>
