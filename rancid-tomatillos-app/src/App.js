@@ -57,7 +57,12 @@ useEffect(() => {
        </>}/>
       <Route path="/:id" element={<SingleMovie setError={setError} movies={movies}
        fetchMovieVideo={fetchMovieVideo} fetchSingleMovie={fetchSingleMovie}/>}/>
-      <Route path="*" element={<Error setError={setError} error={error}/>}/>
+      <Route path="*" element={
+      <>
+      <Header />
+      <Error setError={setError} error={error}/>
+      </>
+      }/>
       </Routes>
       </div>
     </div>
