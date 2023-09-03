@@ -1,3 +1,11 @@
-.error-container p{
-    margin-right: 40px;
+
+
+.error-container{
+    display:flex;
+    flex-direction: column;
+}
+
+.error-pic{
+    height: 500px;
+    width: 800px;
 }

@@ -1,59 +1,48 @@
 import './SingleMovie.css'
 import MovieView from './MovieView'
 import PropTypes from 'prop-types';
-import {NavLink, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import  { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
+function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo, movies}){
     const [selectedMovie, setSelectedMovie] = useState(null)
     const [selectedVideo, setSelectedVideo] = useState('0')
-
-    
-    let navigate = useNavigate()
+    const navigate = useNavigate();
     let id = Number(useParams().id)
-    function checkMovieID(){
-      console.log(movies)
-      console.log(movies.find(movie => movie.id ===id))
-      if(movies.find(movie => movie.id ===id) === undefined){
-        console.log('im an error page')
-        return false;
-      } else {return true}
-    }
-    useEffect( ()=> {
-      if (checkMovieID()){
-        fetchMovieVideo(id)
-        .then(data => {
-          let trailer = data.videos.find(video => video.type === 'Trailer');
-          if(trailer){
-            setSelectedVideo(trailer.key)
-          }
-          else{
-            setSelectedVideo('0')
-          }
-        })
-        .catch(error =>  {
-          setError(error.message)
-          navigate('*')
-        })
-        
-        fetchSingleMovie(id)
-        .then(data=> setSelectedMovie(data.movie))
-        .catch(error=> {
-          setError(error.message)
-          navigate('*')
-        })
-      } 
-      else {
-        navigate('*')
-      }
-    },[])
-    
-    
-      if(selectedMovie === null){ 
-        return (<p>Please wait for movie info to load</p>)
-      } else {
-        return (
+
+function checkMovieID(){
+  if(movies.find(movie => movie.id === id) === undefined){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+useEffect(() => {
+  const NAVIGATION_TYPE_RELOAD = window.performance.navigation.TYPE_RELOAD;
+  const navigationType = window.performance.navigation.type;
+  const isRefreshed = navigationType === NAVIGATION_TYPE_RELOAD;
+
+  if (checkMovieID() || isRefreshed) {
+    Promise.all([fetchMovieVideo(id), fetchSingleMovie(id)])
+      .then(([videoData, movieData]) => {
+        const trailer = videoData.videos.find(video => video.type === 'Trailer');
+        setSelectedVideo(trailer ? trailer.key : '0');
+        setSelectedMovie(movieData.movie);
+      })
+      .catch(error => setError(error.message));
+  } else {
+    setError("Whoops! This page is not found. Please return home :)");
+    navigate('*');
+  }
+}, []);
+
+
+
+    if (selectedMovie){
+    return ( 
         <div className='single-movie-view'>
         <MovieView 
         id = {selectedMovie.id}
@@ -70,11 +59,8 @@ function SingleMovie( {setError, fetchSingleMovie, fetchMovieVideo , movies}){
         tagline = {selectedMovie.tagline}
         selectedVideo={selectedVideo}
         />
-        </div>)
-
-      }
-
-    
+        </div>
+    )}
 }
 
 export default SingleMovie

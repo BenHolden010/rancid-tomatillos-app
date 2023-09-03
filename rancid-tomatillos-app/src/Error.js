@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom"
+import './Error.css'
 
-export default function Error({setError, error}){
+import { NavLink } from "react-router-dom"
+import errorimg from './errorimage.webp'
+export default function Error({error}){
  
-    setError('Whoops! Something went wrong! page not found. please try another option')
+   
 
 return( 
   <div className='error-container'>
@@ -10,6 +12,7 @@ return(
   <NavLink className='home-button' to="/">
   <button>Retrun to Home Page</button>
   </NavLink>
+  <img className='error-pic' src={errorimg}></img>
   </div>
 )
 }
