@@ -51,7 +51,58 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+@media screen and (max-width: 1240px){
+  .search-filter-form {
+      flex-direction: column;
+  }
+  .rating-display {
+      font-size: 17px;
+  }
+  .movie-card {
+      height: 250px;
+      width: 140px;
+  }
+  h3 {
+      font-size: .7em;
+  }
+  .search-input{
+      margin-right:0px;
+  }
+  .movies-container {
+      width: 90%;
+  }
+}
+@media screen and (max-width: 650px){
+  .search-input{
+      width: 300px;
+  }
+  .rating-display {
+      font-size: 11px;
+  }
+  
+  .movie-card {
+      height: 125px;
+      width: 70px;
+      margin-bottom: 10px;
+      height: 144px;
+  }
+  h3 {
+      font-size: .3em;
+  }
+  .movies-container {
+      width: 100%;
+      min-width: 370px;
+  }
+  .header-container img {
+      width: 200px;
+      height: 40px;
+      margin-left: 20px;
+  }
+  html { 
+      min-width: 370px;
+  }
 }
 
 

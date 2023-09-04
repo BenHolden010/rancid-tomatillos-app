@@ -19,6 +19,12 @@ describe('Home Page', () => {
         .get('.movie-card').last().contains('h3', 'R.I.P.D. 2')
         
     })
-        
-    }
-) 
+
+    it('should have error handling for improper paths', () => {
+        cy.visit('http://localhost:3000/randomfilepath')
+        .get('p').contains('p','Whoops! This page is not found. Please return home :)')
+        .get('.error-pic').should("be.visible")
+        .get('a').contains('button','Return to Home Page').click()
+        .url().should('eq', 'http://localhost:3000/')
+    })
+}) 

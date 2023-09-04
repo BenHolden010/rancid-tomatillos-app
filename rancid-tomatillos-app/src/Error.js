@@ -10,7 +10,7 @@ return(
   <div className='error-container'>
   <p>{error}</p>
   <NavLink className='home-button' to="/">
-  <button>Retrun to Home Page</button>
+  <button>Return to Home Page</button>
   </NavLink>
   <img className='error-pic' src={errorimg}></img>
   </div>
