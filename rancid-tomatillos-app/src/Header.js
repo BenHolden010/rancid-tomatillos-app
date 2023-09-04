@@ -10,7 +10,6 @@ function Header(){
             </NavLink>
         </div>
     )
-
 }
 
 export default Header

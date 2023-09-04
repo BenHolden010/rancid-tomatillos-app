@@ -1,6 +1,5 @@
 import movieData from '../fixtures/movieData.json'
 
-
 describe('Home Page', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000')
@@ -17,7 +16,6 @@ describe('Home Page', () => {
         .get('.movie-card').last().contains('.rating-display', 7.0)
         .get('.movie-card').first().contains('h3', 'Black')
         .get('.movie-card').last().contains('h3', 'R.I.P.D. 2')
-        
     })
 
     it('should have error handling for improper paths', () => {

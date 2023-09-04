@@ -1,7 +1,4 @@
 
-
-
-
 button {
   padding: 1em;
   background-color: black;
@@ -32,8 +29,6 @@ button:hover{
   color:white;
   font-family: 'Barlow Condensed', sans-serif;
   font-family: 'Montserrat', sans-serif;
-  /* height: 35%; */
-  /* width: 100vw; */
 }
 
 .video-container {
@@ -45,7 +40,7 @@ button:hover{
   height: 50%;
   width: 102%;
   border-bottom: solid 20px black;
-  }
+}
 
 .video-container iframe {
   height: 100%;
@@ -71,12 +66,10 @@ button:hover{
   font-size: 40px;
 }
 
-
 .bottom-info{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* width: 50%; */
   margin-left: 20px;
   margin-right: 20px;
 }

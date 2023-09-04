@@ -4,9 +4,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 
-function MovieView({poster_path, backdrop_path,id,title,release_date,average_rating,showMovies,genres,overview, revenue,runtime,tagline,budget,selectedVideo}){
-let revenueEdit = revenue.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
-let budgetEdit = budget.toLocaleString('en-US', { style: 'currency', currency: 'USD'})
+function MovieView({poster_path, backdrop_path, title, genres, overview, runtime, selectedVideo}){
 return (
   <div className='selected-movie-container'>
     <Link className='card--link' to={`/`}>
@@ -40,15 +38,9 @@ export default MovieView
 MovieView.propTypes = {
   id: PropTypes.number.isRequired,
    title: PropTypes.string.isRequired,
-   backdrop_path: PropTypes.string.isRequired,
-   average_rating: PropTypes.number.isRequired,
-   release_date: PropTypes.string.isRequired,
    genres: PropTypes.arrayOf(PropTypes.string.isRequired
    ).isRequired,
    overview: PropTypes.string.isRequired,
-   revenue: PropTypes.number.isRequired,
    runtime: PropTypes.number.isRequired,
-   tagline: PropTypes.string.isRequired,
-   budget: PropTypes.number.isRequired,
    selectedVideo: PropTypes.string.isRequired
 }
