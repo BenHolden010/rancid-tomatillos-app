@@ -1,14 +1,11 @@
 import './App.css';
 import  { useState, useEffect } from 'react';
-import MovieView from './MovieView';
 import Header from './Header'
 import Error from './Error'
 import SingleMovie from './SingleMovie'
 import {fetchMovies, fetchSingleMovie, fetchMovieVideo} from './ApiCalls'
 import Movies from './Movies'
 import { Routes, Route } from 'react-router-dom';
-
-
 
 function App() {
 
@@ -22,28 +19,6 @@ useEffect(() => {
   .then(data => setMovies(data.movies))
   .catch(error => setError(error.message))
 },[])
-
-// function displayMovie(id){
-//   fetchMovieVideo(id)
-//   .then(data => {
-//     let trailer = data.videos.find(video => video.type === 'Trailer');
-//     if(trailer){
-//     setSelectedVideos(trailer.key)
-//     }
-//     else{
-//       setSelectedVideos('0')
-//     }
-//   })
-//   .catch(error => setError(error.message))
-//   fetchSingleMovie(id)
-//   .then(data => setSelectedMovie(data.movie))
-//   .catch(error => setError(error.message))
-// }
-
-// console.log("MOVIES PROP :", movies);
-// function showMovies(){
-//   setSelectedMovie('')
-// }
 
   return (
     <div className="App">

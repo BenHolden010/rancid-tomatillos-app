@@ -1,6 +1,5 @@
 import './Filter.css'
 import {useState, useEffect} from 'react'
-
 import {faArrowUpWideShort, faArrowDownShortWide} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -13,7 +12,6 @@ function Filter({sortMovies , filterMovies}){
         filterMovies(searchValue, filterValue)
     },[searchValue, filterValue])
 
-
     function setSearchMovies(e){
         setSearchValue(e.target.value)
     }
@@ -22,7 +20,6 @@ function Filter({sortMovies , filterMovies}){
         setFilterValue(e.target.value);
     }
 
-    
     return (
         <div className='search-filter-form'>
             <div className='filter-container'>
@@ -43,9 +40,7 @@ function Filter({sortMovies , filterMovies}){
             <button onClick={() => sortMovies('descend') }>High-low <FontAwesomeIcon icon={faArrowDownShortWide} /></button>
             </div>
         </div>
-
     )
 }
-
 
 export default Filter;

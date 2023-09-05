@@ -5,12 +5,12 @@ import Filter from './Filter'
 import {useState, useEffect} from 'react'
 
 
-function Movies({movies, displayMovie}) {
+function Movies({movies}) {
     const [filteredMovies, setFilteredMovies] = useState([])
     
     useEffect(() => {
         setFilteredMovies([...movies])
-      }, [movies])
+    }, [movies])
     
     function sortMovies(direction) {
         let sortedMovies = [...filteredMovies];
@@ -47,10 +47,8 @@ function Movies({movies, displayMovie}) {
             <MovieCard
             id={movie.id}
             poster_path={movie.poster_path}
-            backdrop_path={movie.backdrop_path}
             title={movie.title}
             average_rating={movie.average_rating}
-            release_date={movie.release_date}
             key={movie.id}
             />
         )
@@ -66,7 +64,7 @@ function Movies({movies, displayMovie}) {
             </div>}
         </>
     )
-    }
+}
 
 export default Movies
 
@@ -79,5 +77,4 @@ Movies.propTypes = {
             id: PropTypes.number.isRequired
           })
     ),
-    
-  }
+}

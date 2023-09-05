@@ -1,6 +1,6 @@
 .search-filter-form{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     align-items: center;
 }
@@ -9,9 +9,7 @@
     display:flex;
     align-items: center;
     width: 13vw;
-   
 }
-
 
 .filter-container p{
     margin-right: 20px;
@@ -28,15 +26,6 @@
 .high{
     background-color: rgba(4, 249, 4, 0.6);
 }
-
-/* .filter-buttons-container{
-    display:flex;
-    flex-direction: column;
-}
-
-.filter-buttons-container button{
-    height: 2%;
-} */
 
 .filter-dropdown{
     display: flex;
@@ -97,8 +86,9 @@
     .movies-container {
         width: 90%;
     }
-}
-@media screen and (max-width: 650px){
+  }
+  
+  @media screen and (max-width: 650px){
     .search-input{
         width: 300px;
     }
@@ -127,4 +117,7 @@
     html { 
         min-width: 370px;
     }
-}
+  }
+  
+  
+  

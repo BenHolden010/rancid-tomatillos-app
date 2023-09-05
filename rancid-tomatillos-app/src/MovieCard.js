@@ -2,7 +2,7 @@ import './MovieCard.css'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
-function MovieCard({id , title, poster_path, backdrop_path, average_rating, release_date}) {
+function MovieCard({id , title, poster_path, average_rating}) {
     let shortenedRating = average_rating.toFixed(1)
     function assignedColor(){
       if(average_rating<5){
@@ -31,8 +31,5 @@ MovieCard.propTypes = {
   id: PropTypes.number.isRequired,
    title: PropTypes.string.isRequired,
    poster_path: PropTypes.string.isRequired,
-   backdrop_path: PropTypes.string.isRequired,
-   average_rating: PropTypes.number.isRequired,
-   release_date: PropTypes.string.isRequired,
-   
+   average_rating: PropTypes.number.isRequired   
 }
